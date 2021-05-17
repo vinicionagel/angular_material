@@ -20,6 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatListModule } from "@angular/material/list";
 import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { LoginHomeComponent } from './componentes/login-home/login-home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeComponent } from './componentes/home/home.component';
     FooterComponent,
     NavComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LoginHomeComponent
   ],
   imports: [
     BrowserModule,

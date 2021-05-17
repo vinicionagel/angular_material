@@ -1,37 +1,42 @@
 import { Input, Output, EventEmitter,Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import {Login} from "./login";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
 
+  form!: FormGroup;
+  login: Login;
 
-  constructor(private route: ActivatedRoute,private router: Router) {
-    this.error = "";
+  constructor(private route: ActivatedRoute,private router: Router, private formBuilder: FormBuilder) {
+    this.login = new Login();
   }
 
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
-
   submit() {
-    if (this.form.controls.username.value !== "" || this.form.controls.password.value !== "") {
+    if (this.form.valid) {
       this.submitEM.emit(this.form.value);
-      this.error = "";
+      this.login = this.form.value;
       this.router.navigate(['/home']);
-    } else {
-      this.error = "Username or password invalid";
     }
   }
 
   @Output() submitEM = new EventEmitter();
 
-  @Input() error: string | null;
+  ngOnInit(): void {
+    this.buildForm();
+  }
+
+  private buildForm(): void {
+    this.form = this.formBuilder.group({
+      password: [null, [Validators.required]],
+      username: [null, Validators.required]
+    })
+  }
 
 }
