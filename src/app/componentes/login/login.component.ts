@@ -2,6 +2,7 @@ import { Input, Output, EventEmitter,Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {Login} from "./login";
+import {AuthenticationService} from "./authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit{
   form!: FormGroup;
   login: Login;
 
-  constructor(private route: ActivatedRoute,private router: Router, private formBuilder: FormBuilder) {
+  constructor(private route: ActivatedRoute,private router: Router, private formBuilder: FormBuilder, private authentication: AuthenticationService) {
     this.login = new Login();
   }
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit{
     if (this.form.valid) {
       this.submitEM.emit(this.form.value);
       this.login = this.form.value;
+      this.authentication.registerSuccessfulLogin("batata", "teste")
       this.router.navigate(['/home']);
     }
   }

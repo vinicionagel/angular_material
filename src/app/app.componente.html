@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<app-header *ngIf="isLogado()"></app-header>
+<app-nav *ngIf="isLogado()"></app-nav>
+<app-login *ngIf="!isLogado()"></app-login>
+<app-footer></app-footer>
