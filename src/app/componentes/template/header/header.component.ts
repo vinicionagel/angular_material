@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    sair() {
+    logout() {
       this.authentication.logout();
       this.rotas.navigate(['/login']);
     }
