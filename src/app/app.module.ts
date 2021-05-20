@@ -22,6 +22,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginHomeComponent } from './componentes/login-home/login-home.component';
+import { RedDirective } from './componentes/directives/red.directive';
+import { ForDirective } from './componentes/directives/for.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { LoginHomeComponent } from './componentes/login-home/login-home.componen
     NavComponent,
     LoginComponent,
     HomeComponent,
-    LoginHomeComponent
+    LoginHomeComponent,
+    RedDirective,
+    ForDirective
   ],
   imports: [
     BrowserModule,
