@@ -12,10 +12,7 @@ export class AppComponent {
   }
 
   isLogado(): boolean{
-    console.log(this.authenticationService.isUserLoggedIn());
     return this.authenticationService.isUserLoggedIn();
   }
-
-
 
 }

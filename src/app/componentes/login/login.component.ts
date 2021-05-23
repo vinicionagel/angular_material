@@ -1,6 +1,6 @@
-import { Input, Output, EventEmitter,Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Output, EventEmitter,Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import {Login} from "./login";
 import {AuthenticationService} from "./authentication.service";
 
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit{
   form!: FormGroup;
   login: Login;
 
-  constructor(private route: ActivatedRoute,private router: Router, private formBuilder: FormBuilder, private authentication: AuthenticationService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private authentication: AuthenticationService) {
     this.login = new Login();
   }
 

@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "./componentes/home/home.component";
-import {LoginHomeComponent} from "./componentes/login-home/login-home.component";
-import {NavComponent} from "./componentes/template/nav/nav.component";
+import {HomeComponent} from "./view/home/home.component";
 import {LoginComponent} from "./componentes/login/login.component";
-import {PessoaCrudComponent} from "./componentes/pessoa-crud/pessoa-crud.component";
+import {PessoaCreateComponent} from "./componentes/pessoa/pessoa-create/pessoa-create.component";
+import {PessoaCrudComponent} from "./view/pessoa-crud/pessoa-crud.component";
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: LoginComponent },
-  {path: 'login', component: LoginHomeComponent},
-  {path: 'pessoa', component: PessoaCrudComponent}
+  { path: 'pessoa/create', component: PessoaCreateComponent },
+  { path: 'pessoa', component: PessoaCrudComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

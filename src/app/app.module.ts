@@ -14,16 +14,18 @@ import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 import { FooterComponent } from './componentes/template/footer/footer.component';
 import { NavComponent } from './componentes/template/nav/nav.component'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { LoginComponent } from './componentes/login/login.component';
-import { HomeComponent } from './componentes/home/home.component';
-import { LoginHomeComponent } from './componentes/login-home/login-home.component';
+import { HomeComponent } from './view/home/home.component';
 import { RedDirective } from './componentes/directives/red.directive';
 import { ForDirective } from './componentes/directives/for.directive';
+import { PessoaCreateComponent } from './componentes/pessoa/pessoa-create/pessoa-create.component';
+import { PessoaCrudComponent } from './view/pessoa-crud/pessoa-crud.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import { ForDirective } from './componentes/directives/for.directive';
     NavComponent,
     LoginComponent,
     HomeComponent,
-    LoginHomeComponent,
     RedDirective,
-    ForDirective
+    ForDirective,
+    PessoaCreateComponent,
+    PessoaCrudComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ForDirective } from './componentes/directives/for.directive';
     HttpClientModule,
     MatCardModule,
     MatInputModule,
+    MatSnackBarModule,
     MatButtonModule,
     MatListModule,
     BrowserAnimationsModule
