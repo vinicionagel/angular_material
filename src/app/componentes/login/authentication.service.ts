@@ -11,8 +11,8 @@ export class AuthenticationService {
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
   USER_NAME_SESSION_ATTRIBUTE_PASSWD = 'password';
 
-  public username: string;
-  public password: string;
+  public username = 'admin';
+  public password = 'admin';
   private _source: string;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -24,8 +24,8 @@ export class AuthenticationService {
   authenticationService(username: string, password: string) {
     return this.http.get(`http://localhost:8080/api/v1/pessoas`,
         { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-      this.username = username;
-      this.password = password;
+      // this.username = username;
+      // this.password = password;
       this.registerSuccessfulLogin(username, password);
     }));
   }

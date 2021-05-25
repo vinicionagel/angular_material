@@ -1,3 +1,5 @@
+import {EnderecoModel} from "../endereco/endereco/endereco.model";
+
 export interface PessoaModel {
 
     id?: number;
@@ -8,4 +10,5 @@ export interface PessoaModel {
     naturalidade: string;
     cpf: string;
     nacionalidade: string;
+    endereco: EnderecoModel;
 }

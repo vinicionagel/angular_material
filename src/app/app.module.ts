@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +15,9 @@ import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 import { FooterComponent } from './componentes/template/footer/footer.component';
 import { NavComponent } from './componentes/template/nav/nav.component'
@@ -26,6 +29,9 @@ import { RedDirective } from './componentes/directives/red.directive';
 import { ForDirective } from './componentes/directives/for.directive';
 import { PessoaCreateComponent } from './componentes/pessoa/pessoa-create/pessoa-create.component';
 import { PessoaCrudComponent } from './view/pessoa-crud/pessoa-crud.component';
+import { HttpLoginInterceptor } from "./http-login-interceptor.service";
+import { PessoaReadComponent } from './componentes/pessoa/pessoa-read/pessoa-read.component';
+import { EnderecoComponent } from './componentes/endereco/endereco/endereco.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,9 @@ import { PessoaCrudComponent } from './view/pessoa-crud/pessoa-crud.component';
     RedDirective,
     ForDirective,
     PessoaCreateComponent,
-    PessoaCrudComponent
+    PessoaCrudComponent,
+    PessoaReadComponent,
+    EnderecoComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,9 @@ import { PessoaCrudComponent } from './view/pessoa-crud/pessoa-crud.component';
     MatSidenavModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    FormsModule,
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
@@ -54,7 +65,11 @@ import { PessoaCrudComponent } from './view/pessoa-crud/pessoa-crud.component';
     MatListModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpLoginInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
