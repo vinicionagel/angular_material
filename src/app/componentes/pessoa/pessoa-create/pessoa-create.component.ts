@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PessoaService} from "../pessoa.service";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -17,7 +17,9 @@ export class PessoaCreateComponent implements OnInit {
   }
 
   constructor(private pessoaService: PessoaService,
-              private router: Router, private message: MatSnackBar) { }
+              private router: Router, private message: MatSnackBar) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -36,4 +38,5 @@ export class PessoaCreateComponent implements OnInit {
   cancelar():void {
     this.router.navigate(['pessoa']);
   }
+
 }

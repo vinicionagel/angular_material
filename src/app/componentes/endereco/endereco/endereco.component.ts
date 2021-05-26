@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {PessoaCreateComponent} from "../../pessoa/pessoa-create/pessoa-create.component";
+import {Component, Input, OnInit} from '@angular/core';
+import {EnderecoModel} from "./endereco.model";
 
 @Component({
   selector: 'app-endereco',
@@ -8,7 +8,12 @@ import {PessoaCreateComponent} from "../../pessoa/pessoa-create/pessoa-create.co
 })
 export class EnderecoComponent implements OnInit {
 
-  constructor(public pessoaComponente:PessoaCreateComponent) { }
+  @Input()
+  public _enderecomodel:EnderecoModel = {
+    rua : ''
+  };
+
+  constructor() { }
 
   ngOnInit(): void {
   }
