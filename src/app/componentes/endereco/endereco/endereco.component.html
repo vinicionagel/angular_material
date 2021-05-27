@@ -1,9 +1,37 @@
-<mat-card>
+<mat-card class="mat-elevation-z8">
     <mat-card-title>
         <form>
             <mat-form-field>
-                <input matInput placeholder="Rua" [(ngModel)]="this._enderecomodel.rua" name="rua" required>
+                <input matInput placeholder="Rua" [(ngModel)]="this.endereco.rua" name="rua">
             </mat-form-field>
         </form>
+        <button (click)="adicionarEndereco()" *ngIf="index === -1" mat-raised-button color="primary" style="margin-bottom: 10px">
+            Adicionar Endereco
+        </button>
+        <button (click)="alterarEndereco()" *ngIf="index !== -1" mat-raised-button color="primary" style="margin-bottom: 10px">
+            Alterar Endereco
+        </button>
     </mat-card-title>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="min-width: 100%">
+        <ng-container matColumnDef="rua">
+            <th mat-header-cell *matHeaderCellDef> Rua </th>
+            <td mat-cell *matCellDef="let element"> {{element.rua}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acao" style="wi">
+            <th mat-header-cell *matHeaderCellDef> Ação </th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="setEnderecoParaAlteracao(element)" disabled="{{index !== -1}}" mat-icon-button>
+                    <mat-icon>build</mat-icon>
+                </button>
+                <button (click)="removeEndereco(element)" disabled="{{index !== -1}}" mat-icon-button>
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>

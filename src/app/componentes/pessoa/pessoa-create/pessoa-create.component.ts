@@ -12,7 +12,7 @@ import {PessoaModel} from "../pessoa.model";
 export class PessoaCreateComponent implements OnInit {
 
   pessoa: PessoaModel = {
-    endereco: { rua : ''},
+    endereco: [],
     dataNascimento: '', email: '', nacionalidade: '', naturalidade: '', nome: '', sexo: '', cpf: ''
   }
 

@@ -10,5 +10,5 @@ export interface PessoaModel {
     naturalidade: string;
     cpf: string;
     nacionalidade: string;
-    endereco: EnderecoModel;
+    endereco: EnderecoModel[];
 }

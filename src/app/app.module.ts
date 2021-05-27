@@ -18,6 +18,10 @@ import { MatListModule } from "@angular/material/list";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
+import {MatIconModule} from "@angular/material/icon";
 
 import { FooterComponent } from './componentes/template/footer/footer.component';
 import { NavComponent } from './componentes/template/nav/nav.component'
@@ -58,6 +62,10 @@ import { EnderecoComponent } from './componentes/endereco/endereco/endereco.comp
     MatFormFieldModule,
     MatTabsModule,
     FormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatIconModule,
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,

@@ -14,13 +14,14 @@
         </mat-card>
     </mat-tab>
     <mat-tab label="Endereço(s)">
-        <app-endereco [_enderecomodel]="pessoa.endereco"></app-endereco>
+        <app-endereco [enderecosmodel]="pessoa.endereco"></app-endereco>
     </mat-tab>
 </mat-tab-group>
-
+<div style="align-content: end">
 <button (click)="create()" mat-raised-button color="primary">
     Salvar
 </button>
 <button (click)="cancelar()" mat-raised-button>
     Cancelar
 </button>
+</div>
