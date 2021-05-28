@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Deseja deletar o registro ?</h2>
+<mat-dialog-content class="mat-typography">
+<p>{{this.data.textoExclusao()}}</p>
+    <button (click)="confirmarExclusao()" mat-raised-button color="primary">
+        Ok
+    </button>
+    <button (click)="cancelar()" mat-raised-button style="margin-left: 10px;margin-bottom: 3px;">
+        Cancelar
+    </button>
+</mat-dialog-content>

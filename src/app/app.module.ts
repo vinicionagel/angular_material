@@ -21,7 +21,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
-import {MatIconModule} from "@angular/material/icon";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { FooterComponent } from './componentes/template/footer/footer.component';
 import { NavComponent } from './componentes/template/nav/nav.component'
@@ -36,6 +37,7 @@ import { PessoaCrudComponent } from './view/pessoa-crud/pessoa-crud.component';
 import { HttpLoginInterceptor } from "./http-login-interceptor.service";
 import { PessoaReadComponent } from './componentes/pessoa/pessoa-read/pessoa-read.component';
 import { EnderecoComponent } from './componentes/endereco/endereco/endereco.component';
+import { ExcluirDialogComponent } from './componentes/template/excluir-dialog/excluir-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { EnderecoComponent } from './componentes/endereco/endereco/endereco.comp
     PessoaCreateComponent,
     PessoaCrudComponent,
     PessoaReadComponent,
-    EnderecoComponent
+    EnderecoComponent,
+    ExcluirDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { EnderecoComponent } from './componentes/endereco/endereco/endereco.comp
     HttpClientModule,
     MatFormFieldModule,
     MatTabsModule,
+    MatDialogModule,
     FormsModule,
     MatTableModule,
     MatSortModule,
