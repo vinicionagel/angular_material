@@ -1,4 +1,13 @@
 form {
     display: flex;
-    flex-direction: column;
+    flex-flow: wrap;
+    width: 100%;
 }
+
+.layout-01 {
+    width: 50%; margin-right: 10px;
+}
+.layout-02 {
+    width: 48%;
+}
+

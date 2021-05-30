@@ -23,6 +23,9 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatSelectModule } from "@angular/material/select";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 import { FooterComponent } from './componentes/template/footer/footer.component';
 import { NavComponent } from './componentes/template/nav/nav.component'
@@ -64,9 +67,12 @@ import { ExcluirDialogComponent } from './componentes/template/excluir-dialog/ex
     HttpClientModule,
     MatFormFieldModule,
     MatTabsModule,
+    MatGridListModule,
     MatDialogModule,
     FormsModule,
     MatTableModule,
+    MatSelectModule,
+    MatAutocompleteModule,
     MatSortModule,
     MatPaginatorModule,
     MatIconModule,

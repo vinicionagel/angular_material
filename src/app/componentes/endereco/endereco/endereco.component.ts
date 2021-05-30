@@ -6,6 +6,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {ExcluirDialog} from "../../template/excluir-dialog/excluir-dialog";
 import {MatDialog} from "@angular/material/dialog";
 import {ExcluirDialogComponent} from "../../template/excluir-dialog/excluir-dialog.component";
+import {Estado} from "./estado";
 
 @Component({
   selector: 'app-endereco',
@@ -14,10 +15,15 @@ import {ExcluirDialogComponent} from "../../template/excluir-dialog/excluir-dial
 })
 export class EnderecoComponent implements OnInit, ExcluirDialog {
 
-  endereco:EnderecoModel = { rua: ''};
-  enderecoRemocao:EnderecoModel = { rua: ''};
+  endereco:EnderecoModel = { rua: '', estado: {nome : "", sigla : ""}};
+  enderecoRemocao:EnderecoModel = { rua: '', estado: {nome : "", sigla : ""}};
 
-  displayedColumns: string[] = ['rua', 'acao'];
+  estados: Estado[] = [
+    {id: 1, nome: "Santa Catarina", sigla: "Sc"},
+    {id: 2, nome: "São Paulo", sigla: "Sp"}
+  ];
+
+  displayedColumns: string[] = ['rua','estado','acao'];
 
   index: number = -1;
 
@@ -35,6 +41,7 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
   }
 
   adicionarEndereco() {
+    console.log(this.endereco)
     this.enderecosmodel.push(this.endereco);
     this.dataSource.data.push(this.endereco);
     this.dataSource.paginator = this.paginator;
@@ -47,7 +54,7 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
   }
 
   private novoEndereco() {
-    this.endereco = {rua: ''};
+    this.endereco = { rua: '', estado: {nome : "", sigla : ""}};
   }
 
   setEnderecoParaAlteracao(element:EnderecoModel) {
@@ -69,7 +76,7 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
   }
 
   cancelarExclusao(): void {
-    this.enderecoRemocao = {rua: ""};
+    this.enderecoRemocao = { rua: '', estado: {nome : "", sigla : ""}};
   }
 
   confirmarExclusao(): void {
@@ -83,5 +90,13 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
 
   textoExclusao(): string {
     return `Deseja excluir o endereço: ${this.enderecoRemocao.rua}`;
+  }
+
+  buscarCidades() {
+    let estado = this.endereco.estado;
+    if (estado) {
+      console.log(estado.nome);
+    }
+
   }
 }

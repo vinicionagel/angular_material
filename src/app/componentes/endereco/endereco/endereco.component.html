@@ -1,16 +1,25 @@
 <mat-card class="mat-elevation-z8">
     <mat-card-title>
-        <form>
-            <mat-form-field>
-                <input matInput placeholder="Rua" [(ngModel)]="this.endereco.rua" name="rua">
-            </mat-form-field>
-        </form>
-        <button (click)="adicionarEndereco()" *ngIf="index === -1" mat-raised-button color="primary" style="margin-bottom: 10px">
-            Adicionar Endereco
-        </button>
-        <button (click)="alterarEndereco()" *ngIf="index !== -1" mat-raised-button color="primary" style="margin-bottom: 10px">
-            Alterar Endereco
-        </button>
+    <form>
+        <mat-form-field class="layout-01">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="this.endereco.estado" name="estado" required (selectionChange)="buscarCidades()" >
+                <mat-option *ngFor="let estado of estados" [value]="estado">
+                    {{estado.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="layout-02">
+            <input matInput placeholder="Rua" [(ngModel)]="this.endereco.rua" name="rua" maxlength="250" required>
+        </mat-form-field>
+    </form>
+    <button (click)="adicionarEndereco()" *ngIf="index === -1" mat-raised-button color="primary" style="margin-bottom: 10px">
+        Adicionar Endereco
+    </button>
+    <button (click)="alterarEndereco()" *ngIf="index !== -1" mat-raised-button color="primary" style="margin-bottom: 10px">
+        Alterar Endereco
+    </button>
+
     </mat-card-title>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="min-width: 100%">
         <ng-container matColumnDef="rua">
@@ -18,7 +27,11 @@
             <td mat-cell *matCellDef="let element"> {{element.rua}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="acao" style="wi">
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado.nome}} </td>
+        </ng-container>
+        <ng-container matColumnDef="acao">
             <th mat-header-cell *matHeaderCellDef> Ação </th>
             <td mat-cell *matCellDef="let element">
                 <button (click)="setEnderecoParaAlteracao(element)" disabled="{{index !== -1}}" mat-icon-button>
