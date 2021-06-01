@@ -6,7 +6,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {ExcluirDialog} from "../../template/excluir-dialog/excluir-dialog";
 import {MatDialog} from "@angular/material/dialog";
 import {ExcluirDialogComponent} from "../../template/excluir-dialog/excluir-dialog.component";
-import {Estado} from "./estado";
+
 
 @Component({
   selector: 'app-endereco',
@@ -15,13 +15,8 @@ import {Estado} from "./estado";
 })
 export class EnderecoComponent implements OnInit, ExcluirDialog {
 
-  endereco:EnderecoModel = { rua: '', estado: {nome : "", sigla : ""}};
-  enderecoRemocao:EnderecoModel = { rua: '', estado: {nome : "", sigla : ""}};
-
-  estados: Estado[] = [
-    {id: 1, nome: "Santa Catarina", sigla: "Sc"},
-    {id: 2, nome: "São Paulo", sigla: "Sp"}
-  ];
+  endereco:EnderecoModel = this.retornaEnderecoLimpo();
+  enderecoRemocao:EnderecoModel = this.retornaEnderecoLimpo();
 
   displayedColumns: string[] = ['rua','estado','acao'];
 
@@ -36,25 +31,19 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
   paginator: MatPaginator;
   dataSource = new MatTableDataSource<EnderecoModel>(this.enderecosmodel);
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   adicionarEndereco() {
     console.log(this.endereco)
     this.enderecosmodel.push(this.endereco);
     this.dataSource.data.push(this.endereco);
     this.dataSource.paginator = this.paginator;
-    this.novoEndereco();
+    this.endereco = this.retornaEnderecoLimpo();
     this.message.open("Adicionado novo endereço", 'X', {
       duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top"
     });
-  }
-
-  private novoEndereco() {
-    this.endereco = { rua: '', estado: {nome : "", sigla : ""}};
   }
 
   setEnderecoParaAlteracao(element:EnderecoModel) {
@@ -71,12 +60,16 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
   }
 
   alterarEndereco() {
-    this.novoEndereco();
+    this.endereco = this.retornaEnderecoLimpo();
     this.index = -1;
   }
 
+  private retornaEnderecoLimpo() {
+    return {rua: '', estadoCidade: {estado: {nome: "", sigla: ""}, cidade: {nome: ""}}};
+  }
+
   cancelarExclusao(): void {
-    this.enderecoRemocao = { rua: '', estado: {nome : "", sigla : ""}};
+    this.enderecoRemocao = this.retornaEnderecoLimpo();
   }
 
   confirmarExclusao(): void {
@@ -90,13 +83,5 @@ export class EnderecoComponent implements OnInit, ExcluirDialog {
 
   textoExclusao(): string {
     return `Deseja excluir o endereço: ${this.enderecoRemocao.rua}`;
-  }
-
-  buscarCidades() {
-    let estado = this.endereco.estado;
-    if (estado) {
-      console.log(estado.nome);
-    }
-
   }
 }

@@ -10,3 +10,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .v-middle {
     vertical-align: middle;
 }
+
+.layout-01-linha {
+    width: 50%; margin-right: 10px;
+}
+.layout-02-linha {
+    width: 48%;
+}

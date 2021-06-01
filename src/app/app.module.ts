@@ -41,6 +41,7 @@ import { HttpLoginInterceptor } from "./http-login-interceptor.service";
 import { PessoaReadComponent } from './componentes/pessoa/pessoa-read/pessoa-read.component';
 import { EnderecoComponent } from './componentes/endereco/endereco/endereco.component';
 import { ExcluirDialogComponent } from './componentes/template/excluir-dialog/excluir-dialog.component';
+import { EstadoCidadeComponent } from './componentes/estado-cidade/estado-cidade.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ExcluirDialogComponent } from './componentes/template/excluir-dialog/ex
     PessoaCrudComponent,
     PessoaReadComponent,
     EnderecoComponent,
-    ExcluirDialogComponent
+    ExcluirDialogComponent,
+    EstadoCidadeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
-import {Estado} from "./estado";
+import {EstadoCidade} from "../../estado-cidade/estado-cidade";
 
 export interface EnderecoModel {
 
-    estado: Estado;
+    estadoCidade: EstadoCidade;
     rua: string;
+
 }

@@ -16,12 +16,12 @@ export class ExcluirDialogComponent implements OnInit {
   }
 
   cancelar() {
-    this.dialogRef.close();
     this.data.cancelarExclusao();
+    this.dialogRef.close();
   }
 
   confirmarExclusao() {
-    this.dialogRef.close();
     this.data.confirmarExclusao();
+    this.dialogRef.close();
   }
 }

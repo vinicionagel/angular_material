@@ -1,0 +1,8 @@
+<mat-form-field class="layout-01-linha">
+    <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="this.estadoCidade.estado" name="estado" required (selectionChange)="buscarCidades()" >
+        <mat-option *ngFor="let estado of estados" [value]="estado">
+            {{estado.nome}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
