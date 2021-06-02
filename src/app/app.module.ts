@@ -42,6 +42,7 @@ import { PessoaReadComponent } from './componentes/pessoa/pessoa-read/pessoa-rea
 import { EnderecoComponent } from './componentes/endereco/endereco/endereco.component';
 import { ExcluirDialogComponent } from './componentes/template/excluir-dialog/excluir-dialog.component';
 import { EstadoCidadeComponent } from './componentes/estado-cidade/estado-cidade.component';
+import { PageNotFoundComponent } from './componentes/template/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { EstadoCidadeComponent } from './componentes/estado-cidade/estado-cidade
     PessoaReadComponent,
     EnderecoComponent,
     ExcluirDialogComponent,
-    EstadoCidadeComponent
+    EstadoCidadeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
